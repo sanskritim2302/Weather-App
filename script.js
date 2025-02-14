@@ -1,21 +1,21 @@
 const fetchData = async () => {
-    var apiKey = "b449989f764340b2abb104553251302"; 
-    var location = document.getElementById("locationInput").value; 
-    var date = document.getElementById("dateInput").value; 
+    const apiKey = "b449989f764340b2abb104553251302"; 
+    let location = document.getElementById("locationInput").value;
+    let date = document.getElementById("dateInput").value;
 
     if (!date) {
         alert("Please select a date.");
         return;
     }
 
-    var apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&dt=${date}`;
+    const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&dt=${date}`; 
 
     try {
-        const response = await fetch(apiUrl);
+        const response = await fetch(apiUrl); 
         if (!response.ok) throw new Error("Failed to fetch data");
 
-        const data = await response.json();
-        const forecast = data.forecast.forecastday[0];
+        const data = await response.json(); 
+        const forecast = data.forecast.forecastday[0];  
 
         document.getElementById("weatherResult").innerHTML = `
             <div class="weather-card">
